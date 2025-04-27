@@ -1,0 +1,79 @@
+{
+	"issetup": true,
+	"files":{
+		"PATH_FILE":"PATH.txt",
+		"CONFIG_FILE":"config.json"
+	},
+	"formats":{
+		"mp3":{
+			"format": "bestaudio/best",
+			"postprocessors": [{
+				"key": "FFmpegExtractAudio",
+				"preferredcodec": "mp3",
+				"preferredquality": "320"
+				}]
+			},
+
+		"mp4":{
+			"format":"mp4"
+			},
+
+		"thumbnail" : {
+			"writethumbnail" : true,
+			"skip_download" : true
+		},
+		"cover" : {
+			"writethumbnail" : true,
+			"skip_download" : true
+			}
+
+	},
+
+	"colors" : {
+	    "DEFAULT": "default",
+	    "JSON": "42",
+	    "PATH": "bright_yellow",
+	    "FILE": "bright_magenta",
+	    "URL": "cyan",
+	    "BOOL": "magenta",
+	    "TRACK_NUM": "12",
+	    "ERROR_FORE": "white",
+	    "ERROR_BACK": "red",
+	    "WARNING_FORE": "yellow",
+	    "WARNING_BACK": "red",
+	    "REMOVED": "bright_red",
+	    "CREATED": "bright_green",
+	    "TRUE": "green",
+	    "FALSE": "red",
+	    "OPERATION": "yellow",
+			"ROADBLOCK_FORE": "black",
+			"ROADBLOCK_BACK": "yellow"
+	},
+	"paint_confs":{
+		"prompt":{
+			"URL": ["URL", ""],
+			"BOOL": ["BOOL", ""],
+			"PATH": ["PATH", ""]
+		},
+		"boolean":{
+			"TRUE": ["TRUE",""],
+			"FALSE": ["FALSE", ""]
+		}
+	},
+	"brush_keys":{
+		"<r>": ["default", "default"],
+		"<warning>": ["yellow","red"],
+		"<roadblock>": ["black","yellow"],
+		"<error>": ["white","red"],
+		"<json>": ["42", ""],
+		"<file>": ["bright_magenta", ""],
+		"<url>": ["cyan", ""],
+		"<path>": ["bright_yellow", ""],
+		"<bool>": ["magenta",""],
+		"<false>": ["red",""],
+		"<true>": ["green",""],
+		"<removed>": ["bright_red", ""],
+		"<created>": ["bright_green", ""],
+		"<track_num>": ["12",""]
+	}
+}

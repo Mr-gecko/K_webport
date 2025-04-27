@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<style media="screen">
+			h1 {text-align: center}
+			form {text-align: center;}
+			p {text-align: center;}
+		</style>
+		<title>K</title>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>K</h1>
+		<form  method="POST">
+			<label class="playlist_switch">
+				PLAYLIST
+				<input type="checkbox" name="playlist">
+			</label>
+			<input type="text" name="url" id="url" size="90" placeholder="URL">
+			<select name="method" id="method", method="POST">
+
+				 <option value="mp3">mp3</option>
+					 <option value="mp4">mp4</option>
+				 <option value="album">album</option>
+				 <option value="cover">cover</option>
+				 <option value="thumbnail">thumbnail</option>
+
+			</select>
+			<input type="submit">
+		</form>
+		<br><br>
+		{% if valid %}
+			<center>
+			<a href="{{ url_for('download') }}">Download</a>
+			</center>
+		{% endif %}
+		{% if error %}
+			 <p>something went wrong, pls retry</p>
+		{% endif %}
+		<br><br>
+		<center>
+			<button onclick="location.href = '{{ url_for('reset') }}'" class="float-left submit-button">reset</button>
+		</center>
+	</body>
+</html>
