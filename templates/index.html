@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 	<head>
-		<style media="screen">
-			h1 {text-align: center}
-			form {text-align: center;}
-			p {text-align: center;}
-		</style>
 		<title>K</title>
 		<meta charset="utf-8">
 		<title></title>
+	<!--	<link rel="stylesheet" href="style.css">-->
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
 	</head>
 	<body>
-		<h1>K</h1>
-		<form  method="POST">
+		<br>
+	<div class="ascii-art">+----------------------------------------+
+|                                        |
+|               <i>based on</i>                 |
+|                                        |
+|               K project                |
+|          Quick_dl_E Reworked           |
+|                                        |
+|              Testing Kit               |
+|                                        |
++----------------------------------------+</div>
+	<br><br>
+		<h1 class="K_header">
+
+		</h1>
+		<form class="form" method="POST">
 			<label class="playlist_switch">
-				PLAYLIST
+				Playlist
 				<input type="checkbox" name="playlist">
 			</label>
-			<input type="text" name="url" id="url" size="90" placeholder="URL">
-			<select name="method" id="method", method="POST">
+			<input class="textbox" type="text" name="url" id="url" size="90" placeholder="URL">
+			<select class="opzioni" name="method" id="method", method="POST">
 
 				 <option value="mp3">mp3</option>
 					 <option value="mp4">mp4</option>
@@ -27,20 +38,23 @@
 				 <option value="thumbnail">thumbnail</option>
 
 			</select>
-			<input type="submit">
+			<input type="submit" class="send_button" value="Start">
 		</form>
 		<br><br>
+
+
 		{% if valid %}
-			<center>
-			<a href="{{ url_for('download') }}">Download</a>
-			</center>
+
+			<div style="text-align: center">
+			<a href="{{ url_for('download') }}" class="download_link">Download</a>
+		</div>
 		{% endif %}
 		{% if error %}
-			 <p>something went wrong, pls retry</p>
+			 <p class="error_1">something went wrong, pls retry</p>
 		{% endif %}
+
+
 		<br><br>
-		<center>
-			<button onclick="location.href = '{{ url_for('reset') }}'" class="float-left submit-button">reset</button>
-		</center>
-	</body>
+			<button onclick="location.href = '{{ url_for('reset') }}'" class="reset_button">reset</button>
+		</body>
 </html>

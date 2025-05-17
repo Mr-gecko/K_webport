@@ -48,7 +48,7 @@ def index():
 
 @app.route("/downloads", methods=["POST","GET"])
 def download():
-    clear_folder(PATH+"/downloads")
+    #clear_folder(PATH+"/downloads")
     return send_file(PATH+"/downloads/downloaded.zip", as_attachment=True)
 
 @app.route("/", methods=["POST","GET"])

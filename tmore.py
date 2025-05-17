@@ -1,10 +1,11 @@
-import validators
+# import validators
 import shutil
 import os
 
 def zip(folder):
     try:
         shutil.make_archive(folder, 'zip', folder)
+        print("zipped!")
         return True
     except:
         return False

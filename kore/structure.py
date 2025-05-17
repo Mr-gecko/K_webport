@@ -29,6 +29,16 @@ except FileNotFoundError as err:
 
 from kore.UI import message, bool_paint
 
+#CONNECTION ROUTINE CHECK
+message("<connection>connection<r>","checking for connection")
+if is_connected():
+    message("<connection>connection<r>","connection found")
+else:
+    message("<connection>connection<r>","connection not found")
+    message("<warning>FATAL<r>", "No connection has been found, impossible to continue")
+    exit()
+
+
 def check_files_routine():
     must_files = config["files"].values()
     actual_files = []

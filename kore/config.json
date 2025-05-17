@@ -74,6 +74,7 @@
 		"<true>": ["green",""],
 		"<removed>": ["bright_red", ""],
 		"<created>": ["bright_green", ""],
-		"<track_num>": ["12",""]
+		"<track_num>": ["12",""],
+		"<connection>": ["87", ""]
 	}
 }

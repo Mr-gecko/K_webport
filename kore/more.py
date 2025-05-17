@@ -2,6 +2,8 @@ import os
 import json
 from PIL import Image
 import eyed3
+import socket #only for the is_connected() function
+
 
 DESKTOP_PATH_ITEM = "#d"
 LOG_SWITCH = False
@@ -180,8 +182,12 @@ def attach_tags(entry):
     if "artist" in entry:
         tags["artist"] = entry["artist"]
     else:
-        tags["artist"] = fetch_artist(entry["title"])[0]
-        tags["title"] = fetch_artist(entry["title"])[1]
+        try: # THIS TRY IS TO MITIGATE THE INDEX OUT RANGE ERROR IN FETCH_ARTIST
+            tags["artist"] = fetch_artist(entry["title"])[0]
+            tags["title"] = fetch_artist(entry["title"])[1]
+        except:
+            tags["artist"] = "nf"
+            tags["title"] = "nf"
     return tags
 
 def add_tags(file, tags):
@@ -217,3 +223,13 @@ def calculate_control(type, entry):
     elif type == "cover":
         control = os.path.basename(get_filepath(entry)[:-(len(get_extension(get_filepath(entry))))]+"webp")
     return control
+
+def is_connected():
+    try:
+        # connect to the host -- tells us if the host is actually
+        # reachable
+        socket.create_connection(("1.1.1.1", 53))
+        return True
+    except OSError:
+        pass
+    return False
