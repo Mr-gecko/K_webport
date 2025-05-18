@@ -22,7 +22,7 @@ def get_desktop_path():
     if os.name == "nt":
         return f"{os.environ['HOMEDRIVE']}{os.environ['HOMEPATH']}/Desktop".replace("\\", "/")
     else:
-        return f"{os.environ['HOMEDRIVE']}{os.environ['HOME']}/Desktop".replace("\\", "/")
+        return f"{os.environ['HOME']}/Desktop".replace("\\", "/")
 
 def is_path(path:str):
     if os.path.exists(path):
